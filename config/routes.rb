@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
   root :to => 'home#index'
+  get 'metafield_editor/product/:id' => 'home#metafield_editor' , as: :metafield_editor
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

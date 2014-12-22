@@ -139,10 +139,18 @@
                 
                 <p><strong>Type:</strong> <%= product.product_type %></p>
                 <p><strong>Vendor:</strong> <%= product.vendor %></p>
+
+                <p><strong>title:</strong> <%= product.title %></p>
+                <p><strong>handle:</strong> <%= product.handle %></p>
+                <p><strong>body:</strong> <%= product.id %></p>
+
                 <p><%= raw(product.body_html) %></p><br/>
                 <% if product.published_at != nil %>
                 <p class="muted">Published at <%= Time.parse(product.published_at).strftime("%H:%M on %m/%d/%Y") %></p>
                 <% end %>
+
+                <p><%= link_to 'Add Metafield' , metafield_editor_path(product), :class => 'btn btn-primary' %></p>
+
                 <p><%= link_to raw('View in your Shopify Admin <i class="icon-chevron-right" style="opacity:.25"></i>'), "https://#{shop_session.url}/admin/products/#{product.id}", :target => 'blank', :class => 'btn btn-primary' %></p>
               </div>
               
@@ -167,4 +175,3 @@
     </div> <!-- accordion -->
   </div> <!-- span8 / right-column -->
 </div>
-<p>Hello World </p>

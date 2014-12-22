@@ -15,4 +15,7 @@ class HomeController < ApplicationController
     @orders   = ShopifyAPI::Order.find(:all, :params => {:limit => 5, :order => "created_at DESC" })
   end
   
+  def metafield_editor
+    @product = ShopifyAPI::Product.find(params[:id])
+  end
 end

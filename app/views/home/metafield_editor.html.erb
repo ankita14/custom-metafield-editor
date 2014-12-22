@@ -1,0 +1,44 @@
+<script type="text/javascript">
+  ShopifyApp.ready(function(){
+    ShopifyApp.Bar.initialize({
+      buttons: {
+        primary: {
+          label: 'Save', 
+          message: 'unicorn_form_submit',
+          loading: true
+        }
+      }
+    });
+  });
+</script>
+<%# @metafields = @product.metafields.additional_info %>
+<%#= @metafields.material %>
+<form data-shopify-app-submit="unicorn_form_submit" action="https://34f882e8cd8473c368a8a01df1a355b7:56cc65954df4c43e6f83c322e97192fa@deliciousfood.myshopify.com/admin/products/<%= @product.id %>/metafields.json" method="post" enctype="application/json">
+
+ <!-- <form action="https://34f882e8cd8473c368a8a01df1a355b7:56cc65954df4c43e6f83c322e97192fa@deliciousfood.myshopify.com/admin/products/<%= @product.id %>/metafields.json" method="post" enctype="application/json" > -->
+  Product Title: '<%= @product.title %>'
+  <br>
+  Product Handle:'<%= @product.handle %>'
+  <br>
+  Body:'<%= @product.body_html %>'
+  <br>
+  Vendor:'<%= @product.vendor %>'
+  <br>
+  Product Type:'<%= @product.product_type %>'
+  <br><br>
+      
+      <h2>Metafield Editor</h2>
+      Metafield Namespace:<br>
+      <input type="text" name="metafield[namespace]" value='additional_info'>
+      <br>
+      Metafield Key:<br>
+      <input type="text" name="metafield[key]" value='material'>
+      <br>
+      Metafield Value_Type:<br>
+      <input type="text" name="metafield[value_type]" value='string'>
+      <br>
+      Metafield value:<br>
+      <input type="text" name="metafield[value]">
+      <br><br>
+      <input type="submit" value="Submit">
+</form>
